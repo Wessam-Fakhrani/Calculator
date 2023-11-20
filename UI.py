@@ -10,15 +10,27 @@ def sanitization(value, acceptables) -> bool:
 reset = True
 
 while reset == True:
-    operation = 'e'
-
     print('Welcome to the Calculator.')
     print('A) Addition \nB) Subtraction \nC) Multiplication \nD) Division \n\n')
     time.sleep(1)
 
-    while sanitization(operation.upper(), ['A', 'B', 'C', 'D']) == False:
-        operation = input('Please enter a valid letter for the operation: ')
-
-    if operation.upper() == 'A':
-        values = input("Please enter all values you would like to add separated by a space\n").split()
-        print(values)
+    while True:
+        operation = input('Please select one of the above: ')
+        operation = operation.upper()
+        if sanitization(operation, ['A', 'B', 'C', 'D']) == False:
+            print("Input Invalid, Try again! \n")
+        else:
+            print("Input accepted. \n")
+            break
+    
+    if operation == 'A':
+        x = input("Please enter the values you would like to add together, separated by spaces\n")
+        values = x.split(' ')
+        values2 = [eval(x) for x in values]
+        maths.addition(values2)
+    
+    elif operation == 'B':
+        x = input("Please enter the values you would like to subtract, separated by spaces\n")
+        values = x.split(' ')
+        values2 = [eval(x) for x in values]
+        maths.subtraction(values2)
