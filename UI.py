@@ -30,7 +30,14 @@ while reset == True:
         maths.addition(values2)
     
     elif operation == 'B':
-        x = input("Please enter the values you would like to subtract, separated by spaces\n")
+        x = input("Please enter the values you would like to subtract, separated by spaces. The first value will be the value all the others will be subtracted from\n")
         values = x.split(' ')
         values2 = [eval(x) for x in values]
         maths.subtraction(values2)
+
+    elif operation == 'C':
+        x = input("Please enter the values you would like to multiply, separated by spaces\n")
+        values = x.split(' ')
+        values2 = [eval(x) for x in values]
+        maths.multiplication(values2)
+    
